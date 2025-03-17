@@ -1,0 +1,28 @@
+Algoritmo InformacoesPessoaisProblema1
+
+Var 
+	nome : vetor[50]
+	telefone : [15]
+	peso, altura : real
+	idade : inteiro
+
+Início
+
+	Escreva("Informe o nome:")
+	Leia(nome)
+	Escreva("Informe idade")
+	Leia(idade)
+	Escreva("Informe peso")
+	Leia(peso)
+	Escreva("Informe altura")
+	Leia(altura)
+	Escreva("Informe telefone")
+	Leia(telefone)
+
+	Escreva("O nome é:", nome)
+	Escreva("A idade é:", idade)
+	Escreva("O peso é:", peso)
+	Escreva("A altura é:", altura)
+	Escreva("O telefone é:", telefone)
+
+Fim

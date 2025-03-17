@@ -1,0 +1,24 @@
+Algoritmo CalculoAreaQuadradoProblema2
+
+/*Objetivo do Algoritmo - calcular área e perímetro do quadrado
+Dados entrada - saber tamanho do lado do quadrado, lado L.
+Dados do processamento - calcular lado x lado por A = L * L e calcular o perímetro P = 4 * L todos os lados
+Dados de saída - apresentar o cálculo da Área e Perímetro do Quadrado na tela */
+
+
+
+Var 
+	lado, area, perimetro: real
+
+Início
+
+	Escreva("Informe o lado do quadrado:")
+	Leia(lado)
+	
+	A <- lado * lado
+	P <- 4 * lado
+
+	Escreva("A área do quadrado é", area)
+	Escreva("O perímetro do quadrado é:", perimetro)
+
+Fim

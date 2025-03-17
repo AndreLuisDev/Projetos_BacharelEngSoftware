@@ -1,0 +1,41 @@
+// utiliza-se uma variável do tipo de uma estrutura de dado homogênea (vetor)
+// atrelado a uma variável do tipo heterogênea (registro)
+// usa-se uma estrutura de dados homogênea (vetor) com o tipo heterogênea (registro)
+
+
+
+Algoritmo CadastrarListaProdutos
+
+ Tipo
+	produto = registro 
+	codigo : inteiro
+	nome : vetor[1..100] de caractere
+	valorCusto : real
+	valorVenda : real
+	quantidade : inteiro
+ Fim_registro
+
+
+Var //ao invés de um único produto, quer-se armazenar uma LISTA DE PRODUTOS
+	//cria-se um vetor de variável do tipo registro, a seguir:
+	
+	listaProduto : vetor[1..10] de produto //em pseudo o vetor precisa ter um tamanho fixado, não pode ficar aberto, infinito
+	i, qdtDeProdutoCadastro : inteiro
+Início
+
+	qdtDeProdutoCadastro <- 1
+	Para i de 1 até 10 faça
+		listaProduto[i].codigo <- i // criação de código automatico dos produtos
+		// ou
+		listaProduto[i].codigo <-qdtDeProdutoCadastro // vai contar de 1 a 10
+		Escreva("Escreva o nome do produto")
+		Leia(listaProduto[i].nome) // na posição i (1,2,3,..,10)
+		Escreva("Escreva o valor do custo")
+		Leia("listaProduto[i].valorCusto")
+		Escreva("Escreva o valor do venda")
+		Leia("listaProduto[i].valorVenda")
+		Escreva("Escreva a quantidade")
+		Leia("listaProduto[i].quantidade")
+		qdtDeProdutoCadastro <- qdtDeProdutoCadastro + 1 // código automático passar para 2, 3, .., 10
+	Fim_para
+Fim

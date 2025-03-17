@@ -1,0 +1,47 @@
+﻿ATIVIDADE DE ESTUDO 03
+
+
+	Acadêmico: André Luis de Souza Lima
+	R.A. 21150930-5
+	Curso: ENGENHARIA DE SOFTWARE
+	Disciplina: ALGORITMOS E LÓGICA DE PROGRAMAÇÃO I - 52/2022
+	Valor da atividade: 1,5
+	Prazo: 06/06/2022 a 24/06/2022 23:59 (horário de Brasília)
+	
+
+RESPOSTA:
+
+
+Algoritmo ControleBovino
+
+Var
+
+    totalGados, numGado, gadoNumPar, gadoNumImpar, cont1, cont2: inteiro
+    pasto1, pasto2: vetor[1..21] de inteiro
+
+Início
+
+    Escreva("Informe a quantidade de gados da fazenda: ")
+    Leia(totalGados)
+    Escreva("Informe o número do gado: ")
+    Leia(numGado)
+        Se (numGado MOD 2 = 0) então
+            Para cont1 de 1 até 21 faça
+                gadoNumPar <- numGado
+                pasto1[cont1] <- gadoNumPar
+            Fim_para
+        Senão
+            Para cont2 de 1 até 21 faça
+                gadoNumImpar <- numGado
+                pasto2[cont2] <- gadoNumImpar
+            Fim_para
+        Fim_se
+    Escreval(“O total de gados da fazenda é:”, totalGados)
+    Para cont1 de 1 até 21 faça         
+        Escreval("Os números dos gados do Pasto 1 são: ", pasto1[cont1])
+    Fim_para
+    Para cont2 de 1 até 21 faça
+        Escreval("Os números dos gados do Pasto 2 são: ", pasto2[cont2])
+    Fim_para
+
+Fim

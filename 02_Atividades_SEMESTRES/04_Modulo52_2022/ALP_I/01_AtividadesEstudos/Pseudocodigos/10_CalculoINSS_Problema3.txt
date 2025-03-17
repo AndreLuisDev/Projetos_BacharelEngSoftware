@@ -1,0 +1,24 @@
+Algoritmo INSS
+
+Var 
+	htrababalhas, hextra, vhora, inss, fgts, sbrutro, sliquido : real
+
+Const
+	phoraextra = 100
+
+Início
+	Escreva("Informe o número de horas trabalhadas:")
+	Leia(htrabalhadas)
+	Escreva("Informe o número de horas extras trabalhadas:")
+	Leia(hextra)
+	Escreve("Informe o valor da hora de trabalho:")
+	Leia(vhora)	
+	sbrutro <- (htrabalhadas + hextra * (1 + (phoraextra/100))) * vhora
+	inss <- sbruto * (9/100)
+	fgts <- sbruto * (8/100)
+	sliquido <- sbruto - inss
+	Escreva("O salário bruto é:", sbruto)
+	Escreva("O salário líquido é:", sliquido)
+	Escreva("O INSS é", inss)
+	Escreva("O FGTS é:", fgts)
+Fim

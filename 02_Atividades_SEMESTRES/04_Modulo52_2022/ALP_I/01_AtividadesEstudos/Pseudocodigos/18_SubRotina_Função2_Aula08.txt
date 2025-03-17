@@ -1,0 +1,21 @@
+//retorna sempre uma variável quando é chamada/invocada
+//retornando o tipo de variável que ela irá retornar
+
+Algoritmo FuncaoMediaAutomovel
+
+// na função pode ser colocados quantos parâmentros forem necessários
+ 
+ Função calcularMediaAutomovel(distancia : real, litros : real) : real
+ Var
+	media : real
+ Início
+	media <- distancia/litros
+	retorne media
+ Fim_função
+
+Var
+
+Início
+// por enquanto aquela função não está sendo chamada até que seja declarada no algoritmo principal
+	
+Fim

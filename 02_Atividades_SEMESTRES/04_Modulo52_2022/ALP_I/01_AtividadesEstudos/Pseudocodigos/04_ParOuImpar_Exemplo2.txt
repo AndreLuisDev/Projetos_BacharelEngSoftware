@@ -1,0 +1,19 @@
+Algoritmo ParOuImpar2
+
+Var 
+	numero, resto: inteiro
+
+Início
+
+	leia(numero)
+	resto <- numero MOD 2
+	
+	Se (resto = 0) então
+		escreva("O número é par")
+		
+	Senão
+		escreve("O número é impar")
+		
+	Fim_se
+
+Fim

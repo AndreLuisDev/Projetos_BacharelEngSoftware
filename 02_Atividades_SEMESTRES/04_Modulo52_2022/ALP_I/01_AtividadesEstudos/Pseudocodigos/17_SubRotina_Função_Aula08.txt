@@ -1,0 +1,23 @@
+//retorna sempre uma variável quando é chamada/invocada
+//retornando o tipo de variável que ela irá retornar
+
+Algoritmo Funcao
+
+
+ Função lerIdade() : inteiro //vai retornar uma info do tipo inteiro
+ Var
+	id : inteiro
+ Início
+	Escreva("Digite sua idade")
+	Leia(id)
+	retorne id
+ Fim_função
+
+Var
+	idade : inteiro
+
+Início
+	
+	idade <- lerIdade() // a variável idade é atribuída do retorno do valor da idade digitado dentro da função
+
+Fim

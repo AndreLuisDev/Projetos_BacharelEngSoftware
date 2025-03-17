@@ -1,0 +1,41 @@
+Algoritmo Pergunta
+
+Var 
+	pergunta : vetor[1..200] de caractere
+	opcao, totalSim, totalNao, totalVotos : inteiro
+	percentualSim, percentualNao : real
+	
+Início
+	Escreva("Digite uma pergunta que tenha resposta SIM ou NÃO")
+	Leia(pergunta)
+
+	totalSim <- 0
+	totalNao <- 0
+	totalVotos <- 0
+
+	Repita
+		Escreva("Digite uma resposta -> 1 - SIM, 2 - NÃO e 3 - ENCERRAR PESQUISA")
+		Leia(opcao)
+
+		Caso(opcao)
+			Seja 1 faça
+				totalSim <- totalSim + 1
+				totalVotos <- totalVotos + 1
+			Seja 2 faça
+				totalNao <- totalNao + 1
+				totalVotos <- totalVotos + 1
+			Seja 3 faça
+				percentualSim <- (totalSim * 100) / totalVotos
+				percentualNao <- (totalNao * 100) / totalVotos
+
+				Escreval("Resumo final da pesquisa")
+				Escreval(pergunta)
+				Escreval("Percentual de sim", percentualSim)
+				Escreval("Percentual de não", percentualNao)
+
+			Senão
+				Escreva("Opção inválida")
+		Fim_caso
+	Ate_que(opcao <> 3)			
+
+Fim

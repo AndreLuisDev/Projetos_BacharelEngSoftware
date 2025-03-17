@@ -1,0 +1,130 @@
+/*	 ATIVIDADE MAPA
+Acadêmico: André Luis de Souza Lima
+R.A. 21150930-5
+Curso: ENGENHARIA DE SOFTWARE
+Disciplina: ALGORITMOS E LÓGICA DE PROGRAMAÇÃO II - 52/2022
+Valor da atividade: 3,50
+Prazo: 02/05/2022 a 08/07/2022 23:59 (horário de Brasília) */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <string.h>
+
+struct paciente{
+	int codigo;
+	char nome[50];
+	char cpf[20];
+	char vacina[20];
+	char data[20];
+	char lote[50];
+};
+
+//Função criada para efetuar o cadastro da vacina e seus respectivos dados
+
+struct paciente cadastrarVacina(){
+	
+	struct paciente vac;
+	
+	printf("Cadastrando dados vacinais... \n\n");
+	printf("Digite o código do paciente:\n");
+	fflush(stdin);
+	scanf("%d", &vac.codigo);
+	printf("Digite o nome do paciente:\n");
+	fflush(stdin);
+	gets(vac.nome);
+	printf("Digite o CPF do paciente no formato 000.000.000-00\n");
+	fflush(stdin);
+	scanf("%s", &vac.cpf);
+	printf("Digite o nome da vacina que o paciente recebeu:\n");
+	fflush(stdin);
+	gets(vac.vacina);
+	printf("Digite o data que o paciente recebeu a vacina:\n");
+	fflush(stdin);
+	gets(vac.data);
+	printf("Digite o lote vacina:\n");
+	fflush(stdin);
+	gets(vac.lote);
+		
+	return vac;
+}
+	
+// Procedimento criado para printar na tela um relatório de dados do cadastro vacinal
+
+void listarAplicacoesVacinais(struct paciente vacinas[999], int qdtCadastro){
+	
+	int i;
+	for(i = 0; i < qdtCadastro; i++){
+		printf("===================================\n\n");
+		printf("CÓDIGO: %d\n", vacinas[i].codigo);
+		printf("NOME: %s\n", vacinas[i].nome);
+		printf("CPF: %s\n", vacinas[i].cpf);
+		printf("VACINA: %s\n", vacinas[i].vacina);
+		printf("DATA: %s\n", vacinas[i].data);
+		printf("LOTE: %s\n", vacinas[i].lote);
+		printf("===================================\n\n");		
+	}	
+}
+
+// programa principal
+
+int main() {
+	setlocale(LC_ALL, "Portuguese");
+	printf("\nCONTROLE DE VACINAÇÃO - ANO 2022 - COVID19\n\n");
+	
+	struct paciente cadastroVacina[999];
+	char busca[20];	
+	int opcao = 0, contVacina, procura;
+	
+	do{
+		printf("\nESCOLHA UMA DAS OPÇÕES:\n\n");
+		printf("[1] -> CADASTRAR VACINA\n[2] -> LISTAR APLICAÇÕES VACINAIS\n[3] -> CONSULTAR VACINAÇÃO POR CPF\n[4] -> SAIR\n\n");
+		scanf("%d", &opcao);
+		
+		switch(opcao){
+			case 1 :
+				system("cls");
+				cadastroVacina[contVacina] = cadastrarVacina();
+				contVacina++;		
+				break;			
+			case 2 :
+				system("cls");
+				printf("Listando vacinações... \n\n");
+				listarAplicacoesVacinais(cadastroVacina, contVacina);
+				printf("LISTAGEM FINALIZADA!\n\n");
+				break;			
+			case 3 :
+				system("cls");
+				printf("Digite um CPF que deseja encontrar no formato 000.000.000-00\n");
+				scanf("%s", &busca);
+				contVacina = 0;
+				procura = 0;
+				while ((contVacina < 999) && (procura == 0)){
+					if (cadastroVacina[contVacina].cpf == busca)
+						procura = 1;
+					else
+						contVacina++;
+					}
+					if (procura == 1){
+						printf("CPF encontrado!");
+						printf("CÓDIGO: %d\n", cadastroVacina[contVacina].codigo);
+						printf("NOME: %s\n", cadastroVacina[contVacina].nome);
+						printf("VACINA: %s\n", cadastroVacina[contVacina].vacina);
+						printf("DATA: %s\n", cadastroVacina[contVacina].data);
+						printf("LOTE: %s\n", cadastroVacina[contVacina].lote);
+					}else
+						printf("\nRegistro não encontrado!\nBusca finalizada\n");
+				break;		
+			case 4 :
+				system("cls");
+				printf("Saindo do programa...\n");
+				break;							
+			default :
+				system("cls");
+				printf("Opção Inválida\n");
+				break;			
+		}
+	}while(opcao != 4);
+	
+	return 0;
+}

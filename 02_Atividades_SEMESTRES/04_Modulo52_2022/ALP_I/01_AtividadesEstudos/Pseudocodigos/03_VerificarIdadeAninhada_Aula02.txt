@@ -1,0 +1,27 @@
+Algoritmo VerificarIdade
+
+Var	
+	idade: inteiro
+	
+Início
+	Escreva("Digite sua idade:")
+	Leia(idade)
+	
+	Escreva ("A idade é:", idade)
+	
+	Se (idade >= 18 E idade <=20) então
+		Escreva("Você é maior de idade, possui entre 18 e 20 anos")
+		
+	Senão
+	
+		Se (idade < 18) então
+			Escreva("Você tem menos que 18")
+		Fim_se
+
+		Se (idade > 20) então
+			Escreva(" Você tem mais que 20")
+		Fim_se
+		
+	Fim_se
+	
+Fim

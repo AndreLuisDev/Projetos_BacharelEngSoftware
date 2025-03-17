@@ -1,0 +1,50 @@
+Algoritmo lerIdade
+
+Var 
+	idades : vetor[1..8] de inteiro
+	i, maiorIdade : inteiro
+	totalIdade, mediaIdade : real
+
+Início
+	Para i de 1 até 8 faça
+		Escreva("Digita uma idade")
+		Leia(idades[i])
+	Fim_para
+
+// ITEM A
+
+	totalIdade <- 0
+	mediaIdade <- 0
+	Para i de 1 até 8 faça
+		totalIdade <- totalIdade + idades[i]
+	Fim_para
+	mediaIdade <- totalIdade / 8
+	Escreva("A média das 8 idade é", mediaIdade)
+
+// ITEM B
+
+	Para i de 1 até 8 faça
+		Se (idades[i] > 25) então
+			Escreva("Idade maior que 25 anos encontrada na posição", i)
+		Fim_se
+	Fim_para
+
+// ITEM C
+
+	maiorIdade <- 0
+	Para i de 1 até 8 faça
+		Se (idades[i] > maiorIdade)
+		maiorIdade <- idades[i]
+		Fim_se			
+	Fim_para
+	Escreva("A maior idade encontrado é", maiorIdade)
+
+// ITEM D
+
+	Para i de 1 até 8 faça
+		Se (idades[i] = maiorIdade)
+			Escreva("Maior idade encontrada na posição", i)
+		Fim_se			
+	Fim_para
+
+Fim

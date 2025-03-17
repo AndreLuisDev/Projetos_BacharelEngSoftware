@@ -1,0 +1,28 @@
+Algoritmo LeituraConsumoAguaAptos
+
+Var 
+	litros, leitura, superior_leitura, consumo: real
+	n, cont, apartamento, superior_leitura_apartamento: inteiro
+	
+Início
+	escreva("Digite a quantidade de apartamentos:")
+	leia(n)
+	escreva("Digite a leitura atual consumida em litros pelo seu apartamento:")
+	leia(leitura)
+	
+	Para cont de 1 até n faça
+		escreva("Digite o número do seu apartamento: ")
+		leia(apartamento)	
+		escreva("Digite a quantidade de litros de água consumida pelo seu apartamento:")
+		leia(litros)
+
+		se (leitura > superior_leitura) então
+			superior_leitura <- leitura
+			superior_leitura_apartamento <- apartamento
+		fim_se
+	fim_para
+		
+		litros <- maior_leitura
+		consumo <- litros / 1000				
+			escreva("O maior consumo em métros cubicos de ", consumo, " foi do apartameto:", superior_leitura_apartamento)
+Fim

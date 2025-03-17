@@ -1,0 +1,97 @@
+﻿//	ATIVIDADE MAPA
+//	Acadêmico: André Luis de Souza Lima
+//	R.A. 21150930-5
+//	Curso: ENGENHARIA DE SOFTWARE
+//	Disciplina: ALGORITMOS E LÓGICA DE PROGRAMAÇÃO I - 52/2022
+//	Valor da atividade: 3,50
+//	Prazo: 02/05/2022 a 08/07/2022 23:59 (horário de Brasília)	
+
+Algoritmo ControleAbastecimentoAeronaves
+
+ Tipo
+	Aeronave = registro
+	 mediaLitrosKm : real
+	 capacidadeMaxTanque : real
+	 trechoPlanejado : real
+	 trechoAlternativo : real
+	 combustivelRemanescente : real
+	 margemSeguranca : real	 
+ Fim_registro
+
+ Função dadosAeronave() : Aeronave
+ Var
+	aeronave : Aeronave
+ Início
+	Escreva("Digite a media em litros/km que a aeronave consome:")
+	Leia(aeronave.mediaLitrosKm)
+	Escreva("Digite a capacidade máxima do tanque da aeronave:")
+	Leia(aeronave.capacidadeMaxTanque)
+	Escreva("Digite a distância em Km do trecho principal planejado:")
+	Leia(aeronave.trechoPlanejado)
+	Escreva("Digite a distância em Km do trecho alternativo planejado:")
+	Leia(aeronave.trechoAlternativo)
+	Escreva("Digite a quantidade de litros de combustível remanescente no tanque da aeronave:")
+	Leia(aeronave.combustivelRemanescente)
+	aeronave.margemSeguranca <- 0.30
+	Retorna aeronave
+ Fim_função
+
+ Função calcularCombustivelTotal(mediaKmLitros, tanqueMaximaCapacidade, trechoPrinc, trechoSecund, combustivelResidual, margemPercentual : real) : real
+ Var
+	combustivelTotal, combustivelTrecho, combustivelAbastecimento  : real
+ Início
+	combustivelTotal <- 0
+	combustivelTrecho <- 0
+	combustivelAbastecimento <- 0
+	combustivelTotal <- combustivelTotal + ((trechoPrinc+trechoSecund) * mediaKmLitros) * (1+margemPercentual))
+	combustivelTrecho <- combustivelTrecho + (trechoPrinc+trechoSecund) * mediaKmLitros)
+	combustivelAbastecimento <- combustivelTotal - combustivelResidual	
+	Se(tanqueMaximaCapacidade < combustivelAbastecimento) então
+		Escreva("Voo reprovado, reveja seu planejamento!")
+	Senao
+		Escreva("Voo aprovado, bom voo!")
+		Escreva("Combustível necessário para o voo: ", combustivelTotal)
+		Escreva("Combustível necessário a ser abastecido", combustivelAbastecimento)
+	Fim_se
+	Retorne combustivelAbastecimento
+ Fim_função
+
+Var
+	anv : Aeronave
+	tipoAnv : vetor[1..30] de caractere
+	totalCombustivel : real
+	opcao : inteiro
+
+Início
+	Repita
+		Escreva("Digite uma opcao")
+		Escreva("1 - Planejar Abastecimento de Voo")
+		Escreva("2 - Consultar Planejamento do Voo")
+		Escreva("3 - Sair")
+		Leia(opcao)
+
+	Caso opcao
+		Seja 1 faça
+			Escreva("PLANEJE SEU VOO!")
+			Escreva("Digite o modelo da aeronave:")
+			Leia(tipoAnv)			
+			anv <- dadosAeronave()
+			Escreva("Digite a distância em Km do trecho planejado")
+			leia(planejadoTrecho)
+			Escreva("Digite a distância em Km do trecho alternativo")
+			leia(alternativoTrecho)
+			totalCombustivel <- calcularCombustivelTotal(anv)			
+		Seja 2 faça			
+			Escreva("======================================")
+			Escreva("Dados da Aeronave", tipoAnv, dadosAeronave(anv))
+			Escreva("======================================")
+			Escreva("Trechos do Voo")
+			Escreva("A distância do trecho principal é", planejadoTrecho)
+			Escreva("A distância do trecho alternativo é", alternativoTrecho)
+			Escreva("======================================")
+			Escreva("Combustível necessário para o voo", totalCombustivel)
+		Senão
+			Escreva("Opção Inválida")
+	Fim_caso
+	Até_que(opcao<>3)
+Fim

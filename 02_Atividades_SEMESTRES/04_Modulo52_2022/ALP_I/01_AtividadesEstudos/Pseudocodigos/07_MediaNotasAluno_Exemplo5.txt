@@ -1,0 +1,19 @@
+Algoritmo MediaNotasAluno
+
+Var media: real
+
+Início
+
+	leia(media)
+	Se(media >= 7.0) então
+		escreva("Aprovado")
+		
+	Senão
+		Se (media >= 4.0 E media < 7.0)
+			escreva("Exame")
+		Senão
+			escreva("Reprovado")
+		Fim_se
+	Fim_se
+	
+Fim

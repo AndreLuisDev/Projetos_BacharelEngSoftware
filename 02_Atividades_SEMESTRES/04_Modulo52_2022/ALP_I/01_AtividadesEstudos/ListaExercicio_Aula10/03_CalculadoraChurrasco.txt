@@ -1,0 +1,101 @@
+//a variável da função pode ser diferente da variável do programa principal
+//a variável da função deve ser declarada na função para ser calculada 
+
+Algoritmo calculadoraChurrasco
+
+ Função lerMenor10anos() : inteiro
+ Var
+	qtdMenor10Anos : inteiro
+ Início
+	Escreva("Digite a quantidade de pessoas com menos de 10 anos que estarão no churrasco")
+	Leia(qtdMenor10Anos)
+	Retorne qtdMenor10Anos
+ Fim_função
+
+ Função ler10a17anos() : inteiro
+ Var
+	qtd10a17anos : inteiro
+ Início
+	Escreva("Digite a quantidade de pessoas com 10 a 17 anos que estarão no churrasco")
+	Leia(qtd10a17anos)
+	Retorne qtd10a17anos
+ Fim_função
+
+ Função lerMaior18anos() : inteiro
+ Var
+	qtdMaior18Anos : inteiro
+ Início
+	Escreva("Digite a quantidade de pessoas com mais de 18 anos que estarão no churrasco")
+	Leia(qtdMaior18Anos)
+	Retorne qtdMaior18Anos
+ Fim_função
+
+ Função calcularCarne(totMenor10 : inteiro, tot10a17 : inteiro, totMaior18 : inteiro, margemPercentual : real) : real
+ Var
+	totalKgCarne : real
+ Início
+	totalKgCarne <- 0
+	totalKgCarne <- totalKgCarne + (totMenor10 * 100)
+	totalKgCarne <- totalKgCarne + ((tot10a17+totMaior18) * 300)
+	totalKgCarne <- totalKgCarne * (1+(margemPercentual/100))
+	totalKgCarne <- totalKgCarne / 1000
+	Retorne totalKgCarne
+ Fim_função
+
+ Função calcularFarofa(totalPessoa : inteiro, margemPercentual : real) : real
+ Var
+	totPacoteFarofa : real
+ Início
+	totPacoteFarofa <- 0
+	totPacoteFarofa <- totalPessoa * 50
+	totPacoteFarofa <- totPacoteFarofa * (1+(margemPercentual/100))
+	totPacoteFarofa <- totPacoteFarofa / 100
+	Retorne totPacoteFarofa
+ Fim_função
+
+ Função calcularRefrigerante(totalMenor18 : inteiro, margemPercentual: real) : real
+ Var
+	totalLataRefri : real
+ Início
+	totalLataRefri <- 0
+	totalLataRefri <- totalMenor18 * 200
+	totalLataRefri <- totalLataRefri * (1+(margemPercentual/100))
+	totalLataRefri <- totalLataRefri / 350
+	Retorne totalLataRefri
+ Fim_função
+
+ Função calcularCerveja(totalMaior18 : inteiro, margemPercentual) : real
+ Var
+	totalGarrafaCerveja : real
+ Início
+	totalGarrafaCerveja <- 0
+	totalGarrafaCerveja <- totalMaior18 * 500
+	totalGarrafaCerveja <- totalGarrafaCerveja * (1+(margemPercentual/100))
+	totalGarrafaCerveja <- totalGarrafaCerveja / 600
+	Retorne totalGarrafaCerveja
+ Fim_funçao
+
+ Função lerMargemPercentual() : real
+ Var
+	margem : real
+ Início
+	Escreva("Digite o percentual de sobra que deseja adicionar aos mantimentos do churrasco")
+	Leia(margem)
+	Retorne margem
+ Fim_função
+
+Var
+	totalMenor10, total10a17, totalMaior18 : inteiro
+	percentualMargem : real	
+Início
+	Escreva("Bem vindo a Calculadora de Churrasco")
+	totalMenor10 <- lerMenor10anos()
+	total10a17 <- ler10a17anos()
+	totalMaior18 <- lerMaior18anos()
+	percentualMargem <- lerMargemPercentual()
+
+	Escreva("Total de carne necessário em Kg", calcularCarne(totalMenor10, total10a17, totalMaior18, percentualMargem))
+	Escreva("Total de pacotes de farofa", calcularFarofa((totalMenor10 + total10a17 + totalMaior18), percentualMargem))
+	Escreva("Total de latas de refrigerante", calcularRefrigerante((totalMenor10 + total10a17), percentualMargem))
+	Escreva("Total de garrafas de cerveja", calcularCerveja(totalMaior18, percentualMargem))
+Fim

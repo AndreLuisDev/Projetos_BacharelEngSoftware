@@ -1,0 +1,37 @@
+//significa enviar algum tipo de informação para dentro do Procedimento
+//sub-rotina, tipo Procedimento a qual não retorna nada, em que pode ocorrer a sua chamada
+// e enviar variáveis para dentro do procedimento
+
+Algoritmo ProcedimentoEnvioDeParametro
+
+ Procedimento escreverInformacao(i: inteiro)
+ Var
+ 
+ Início
+	Escreva("A idade lida foi", i)
+ Fim_procedimento
+
+ Procedimento somar()
+ Var
+	v1, v2, resultado : inteiro
+
+ Início
+	Escreva("Digite o valor 1")
+	Leia(v1)
+	Escreva("Digite o valor 2")
+	Leia(v2)
+	resultado <- v1 + v2
+	Escreva("O resultado é", resultado)
+ Fim_procedimento
+
+Var
+	idade : inteiro
+
+Início
+	Escreva("Digite a sua idade")
+	Leia(idade)
+
+	escreverInformacao(idade) // toda vez que for chamar o procedimento
+											//é necessário colocar por qual parâmento quer-se utilizar o procedimento
+	somar()
+Fim

@@ -1,0 +1,151 @@
+/*	 ATIVIDADE MAPA
+Acadêmico: André Luis de Souza Lima
+R.A. 21150930-5
+Curso: ENGENHARIA DE SOFTWARE
+Disciplina: ALGORITMOS E LÓGICA DE PROGRAMAÇÃO II - 52/2022
+Valor da atividade: 3,50
+Prazo: 02/05/2022 a 08/07/2022 23:59 (horário de Brasília) */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <string.h>
+
+struct dados{
+	int codigo;
+	char nome[50];
+	char cpf[14];
+	char vacina[20];
+	char data[10];
+	char lote[50];
+};
+
+//Função criada para efetuar o cadastro da vacina e seus respectivos dados
+
+struct dados cadastrarVacina(){
+	
+	struct dados vac;
+	
+	printf("Cadastrando dados vacinais... \n\n");
+	printf("Digite o código do paciente:\n");
+	fflush(stdin);
+	scanf("%d", &vac.codigo);
+	printf("Digite o nome do paciente:\n");
+	fflush(stdin);
+	gets(vac.nome);
+	printf("Digite o CPF do paciente (formato 000.000.000-00)\n");
+	fflush(stdin);
+	gets(vac.cpf);
+	printf("Digite o nome da vacina que o paciente recebeu:\n");
+	fflush(stdin);
+	gets(vac.vacina);
+	printf("Digite o data que o paciente recebeu a vacina:\n");
+	fflush(stdin);
+	gets(vac.data);
+	printf("Digite o lote vacina:\n\n");
+	fflush(stdin);
+	gets(vac.lote);
+	
+	return vac;
+}
+	
+// Procedimento criado para printar na tela um relatório de dados do cadastro vacinal
+
+void listarAplicacoesVacinais(struct dados vacinas[999], int qdtCadastro){
+	
+	int i;
+	for(i = 0; i < qdtCadastro; i++){
+		printf("===================================\n\n");
+		printf("CÓDIGO: %d\n", vacinas[i].codigo);
+		printf("NOME: %s\n", vacinas[i].nome);
+		printf("CPF: %s\n", vacinas[i].cpf);
+		printf("VACINA: %s\n", vacinas[i].vacina);
+		printf("DATA: %s\n", vacinas[i].data);
+		printf("LOTE: %s\n\n", vacinas[i].lote);
+		printf("===================================\n\n");
+	}
+	
+}
+
+int main() {
+	setlocale(LC_ALL, "Portuguese");
+		
+	printf("\nCONTROLE DE VACINAÇÃO - ANO 2022 - COVID19\n\n");
+
+	
+	// struct dados relatorio[TAM];
+	int opcao = 0;
+	int contVacina = 0;
+	struct dados cadastroVacina[999];
+	
+	do{
+		printf("ESCOLHA UMA DAS OPÇÕES:\n\n");
+		printf("[1] -> CADASTRAR VACINA\n[2] -> LISTAR APLICAÇÕES VACINAIS\n[3] -> CONSULTAR VACINAÇÃO POR CPF\n[4] -> SAIR\n\n");
+		scanf("%d", &opcao);
+		
+		switch(opcao){
+			case 1 : {
+				cadastroVacina[contVacina] = cadastrarVacina();
+				contVacina++;		
+					/*printf("Cadastrando dados vacinais... \n\n");
+					fflush(stdin);
+					printf("Digite o código do paciente:\n");
+					scanf("%d", &relatorio[i].codigo);
+					fflush(stdin);
+					printf("Digite o nome do paciente:\n");
+					scanf("%50s", &relatorio[i].nome);
+					fflush(stdin);
+					printf("Digite o CPF do paciente (formato 000.000.000-00)\n");
+					scanf("14%s", &relatorio[i].cpf);
+					fflush(stdin);	
+					printf("Digite o nome da vacina que o paciente recebeu:\n");
+					scanf("20%s", &relatorio[i].vacina);
+					fflush(stdin);
+					printf("Digite o data que o paciente recebeu a vacina:\n");
+					scanf("10%s", &relatorio[i].data);
+					fflush(stdin);
+					printf("Digite o lote vacina:\n");
+					scanf("50%s", &relatorio[i].lote);
+					fflush(stdin);*/				
+				break;
+			}
+			case 2 : {
+				printf("Listando vacinações... \n\n");
+				listarAplicacoesVacinais(cadastroVacina, contVacina);
+				
+			/*	system("pause");
+				printf("\n");
+					for (i=0; i<TAM; i++){
+						printf("===================================\n\n");
+						printf("CÓDIGO: %d\n", relatorio[i].codigo);
+						printf("NOME: %s\n", relatorio[i].nome);
+						printf("CPF: %s\n", relatorio[i].cpf);
+						printf("VACINA: %s\n", relatorio[i].vacina);
+						printf("DATA: %s\n", relatorio[i].data);
+						printf("LOTE: %s\n\n", relatorio[i].lote);
+						printf("===================================\n\n");
+					} */
+				break;
+			}
+			case 3 : {
+				printf("Digite um CPF que deseja encontrar no formato 000.000.000-00\n");
+				//scanf("14%s", &relatorio[i].cpf);
+				fflush(stdin);
+				printf("Buscando CPF... \n\n");				
+				system("pause");
+				break;
+			}
+			case 4 : {
+				printf("Saindo do programa...\n");
+				break;
+			}				
+			default : {
+				printf("Opção Inválida\n");
+				break;
+			}
+		}
+	}while(opcao != 4);
+	
+	
+	return 0;
+}

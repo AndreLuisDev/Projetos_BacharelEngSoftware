@@ -1,0 +1,34 @@
+//Armazenar 4 notas de 10 alunos e resolver a média de cada um e mostrar na tela
+
+
+Algoritmo BoletimAlunos 
+
+Var 
+	
+	notasAalunos: vetor[1..10,1..4] de real
+	i, j: inteiro
+	soma, media: real
+
+Início
+	
+	Para i de 1 até 10 faça
+		Escreva("Aluno numero", i)
+		Para j de 1 até 4 faça
+			Escreva("Digite a nota da prova", j, "do aluno", i) // Digite a nota prova 1,2,3,4 do aluno 1
+			Leia(notasAlunos[i,j]) 
+		Fim_para
+	Fim_para
+
+	soma <- 0.0 //iniciando as variáveis
+	media <-0.0
+
+	Para i de 1 até 10 faça
+		soma <- 0.0 // a cada aluno, a cada i, soma e média devem ser zeradas!!!
+		media <-0.0
+			Para j de 1 até 4 faça
+				soma <- soma + notasAlunos[i,j]
+			Fim_para
+			media <- soma / 4
+			Escreva("A média do aluno", i, "é", media)
+	Fim_para
+Fim

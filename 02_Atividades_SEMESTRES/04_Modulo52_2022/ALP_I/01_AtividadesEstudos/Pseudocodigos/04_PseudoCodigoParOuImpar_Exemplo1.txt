@@ -1,0 +1,23 @@
+Algoritmo parOuImpar
+
+Var
+
+	numero, resto: inteiro
+	
+Início
+	
+	leia(numero)
+	resto <- numero / 2
+	resto <- numero - (resto * 2)
+	
+	Se (resto = 0) então
+	
+		Escreva("O número é par")
+		
+	Senão
+	
+		Escreva(O número é ímpar")
+		
+	Fim_se
+
+Fim

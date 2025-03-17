@@ -1,0 +1,16 @@
+TESTE DE MESA
+
+Para o bloco
+
+Se (idade >= 18 E idade <=20) então
+		Escreva("Você é maior de idade")
+	Fim_se
+
+
+IDADE <- 30
+
+30 >= 18 ? = VERDADEIRA
+
+30 <= 20? = FALSO
+
+O BLOCO NÃO VAI SER EXECUTADO

@@ -1,0 +1,38 @@
+// Por padrão, os registros em pseudocódigos são criado no início do algoritmo
+// antes de se declararem as variáveis
+/// paradigma de desenvolvimento estruturado é na lingaguem C. Registro <> Classe (POO)
+
+
+Algoritmo CadastrarProduto
+
+ Tipo
+	produto = registro //é citado qual será o nome do registro, que será produto
+	// atributos a seguir
+	codigo : inteiro
+	nome : vetor[1..100] de caractere
+	valorCusto : real
+	valorVenda : real
+	quantidade : inteiro
+ Fim_registro
+
+
+Var 
+	p : produto	// criar uma variável do tipo *produto* (ao invés de real, int)
+
+Início
+
+	Escreva("Cadastro de Produto")
+	Escreva("Digite o nome do produto")
+	Leia(p.nome) //ler dentro da variável 'produto'
+					// a info lida foi para dentro da variável p no atributo nome!!!!
+					// a info ficará armazenada dentro do registro
+	Escreva("Digite o valor de custo")
+	Leia(p.valorCusto)
+	Escreva("Digite o valor de venda")
+	Leia(p.valorVenda)
+	Escreva("Digite a quantidade do produto em estoque")
+	Leia(p.quantidade)
+	// ou atribuir valor direto a quantidade
+	p.quantidade <- 10
+	
+Fim

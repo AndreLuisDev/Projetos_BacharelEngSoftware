@@ -1,0 +1,64 @@
+/* Erros no código da AE01_ALPII
+
+O erro apresentado no final do programa está mostrando dois status:
+
+Aprovado e Reprovado após ter sido calculada a média final do aluno, composta 3 inserções de notas.
+
+O erro se deu por vários fatores do não entendimento da solução_problema apresentado pelo programador,
+bem como ao uso equivocado das expressões relacionais com a estrutura condicional SE.
+
+1º Ponto - Linha 15
+
+O aluno Reprovado com media < 5 e não media <= 5, pois se a média = 5, o aluno entra em recuperação.
+
+O conteúdo correta da linha 15 deveria ser:
+	if (media < 5)
+	
+2º Ponto - Linha 18
+
+O aluno em Recuperação deve ter media entre 5 e 6.9 e não media <= 7, pois há conflito entre o if anterior.
+Se media <= 7, também pode ser uma media que esteja abaixo de 5, e o erro de Reprovado pode aparecer, uma vez
+que o aluno poderia entrar em Recuperação.
+
+O conteúdo correta da linha 18 deveria ser:
+	if (media >=5 && media < 7)
+	
+3º Ponto - Linha 21
+
+O aluno Aprovado com media >= 7 e não media <= 10.
+Essa relação com 10 não tem cabimento. O erro para Aprovado com Reprovado sempre irá aparecer com media <=10,
+pois todas as médias calculadas poderiam ser menor que 10 (exceto igual a 10) e entrariam em conflito (indecisão entre Reprovado e Recuperação) 
+
+O conteúdo correta da linha 21 deveria ser:
+	if (media >= 7)
+
+Vale ressaltar também que o programador cometeu alguns erros de alimnhamento do código (indentação).
+
+O código corrigido seria:
+
+#include <stdio.h>
+
+int main(int argc, char const *argv[]){
+    float p1, p2, p3, media = 0.0;
+    	printf("Digite a nota 1\n");
+    	scanf("%f", &p1);
+    	printf("Digite a nota 2\n");
+    	scanf("%f", &p2);
+    	printf("Digite a nota 3\n");
+    	scanf("%f", &p3);
+
+	media = (p1+p2+p3)/3;
+		printf("Média calculada %f\n", media);
+
+	if(media <= 5){
+		printf("Reprovado\n");
+	}
+	if(media >= 5 && media < 7){
+        printf("Recuperação\n");
+	}
+	if(media >= 7){
+        printf("Aprovado\n");
+	}
+
+	return 0;
+ }

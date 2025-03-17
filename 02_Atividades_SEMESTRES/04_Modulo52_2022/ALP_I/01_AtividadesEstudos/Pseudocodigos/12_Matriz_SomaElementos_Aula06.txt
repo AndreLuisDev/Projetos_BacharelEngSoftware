@@ -1,0 +1,21 @@
+Algoritmo SomaElementosMatriz
+
+/// matriz é um vetor de duas dimensões
+
+Var 
+	mat: vetor[1..3,1..3] de inteiro
+	i, j, total: inteiro // contadores para a linha (i) e para a coluna (j)
+	
+	// COMO PERCORRER OS VALORES DA MATRIZ E FAZER O TOTAL DOS VALORES	
+
+Início
+	total <- 0
+	para i de 1 até 3 faça //percorre somente as linhas
+		para j de 1 até 3 faça //percorre dentro das linhas, tbm as colunas
+			total <- total + mat[i,j] //percorre cada linha/coluna e soma os conteúdos de cada índica a11, a12, a13, a21, a22, a23..
+		Fim_para
+	Fim_para
+
+	Escreva("A soma é ", total)
+
+Fim

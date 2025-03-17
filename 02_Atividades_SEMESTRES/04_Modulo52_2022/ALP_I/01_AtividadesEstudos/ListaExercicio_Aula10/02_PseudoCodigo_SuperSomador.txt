@@ -1,0 +1,34 @@
+Algoritmo SuperSomador
+
+ Função superSomador(valorInicio : inteiro, valorFim : inteiro) : inteiro
+ Var
+	soma, i : inteiro
+ Início
+
+	Se (valorFim <= ValorInicio) então
+		Escreva("Valores Inválidos")
+		Retorne 0 // não vai continuar a execução e retorna 0 para a função
+
+	soma <- 0
+	Para i de valorInicio até valorFim faça
+		soma = soma + i
+	Fim_para
+	Retorne soma
+ Fim_função
+
+
+Var 
+	v1, v2, resultado : inteiro
+
+Início
+	Escreva("Digite o valor 1 para rodar o Super Somador")
+	Leia(v1)
+	Escreva("Digite o valor 2 para rodar o Super Somador")
+	Leia(v2)
+
+	resultado <- superSomador(v1,v2) // vai chamar a função por parâmetro de v1 e v2
+
+	Escreva("O resultado do Super Somador foi", resultado)
+
+
+Fim

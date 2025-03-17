@@ -1,0 +1,70 @@
+Algoritmo manterUsuario
+ Tipo
+	Usuario = registro
+	 nome : Vetor[1..100] de caractere 
+	 login : Vetor[1..50] de caractere
+	 senha : Vetor[1..50] de caractere	 
+	 email : Vetor[1..100] de caractere
+ Fim_registro
+
+ Função cadastrarUsuario() : Usuario
+ Var
+	usuario : Usuario //dentro da função há a variável usuário do tipo Usuario (que é o próprio registro)
+ Início
+	Escreva("Digite o nome do usuário")
+	Leia(usuario.nome)
+	Escreva("Digite o login do usuário")
+	Leia(usuario.login)
+	Escreva("Digite a senha do usuário")
+	Leia(usuario.senha)
+	Escreva("Digite o email do usuário")
+	Leia(usuario.email)
+
+	Retorna usuario
+ Fim_função
+
+ Procedimento listarUsuario(users : Vetor[1..9999] de Usuario, qtdUsuario : inteiro)
+ Var
+	i : inteiro
+ Início
+	Para i de 1 até qtdUsuario faça
+		Escreva("=====================")
+		Escreva("Nome ->", users[i].nome)
+		Escreva("Login ->", users[i].login)
+		Escreva("Senha ->", users[i].senha)
+		Escreva("Email ->", users[i].email)
+	Fim_para
+
+ Fim_procedimento
+
+Var
+	usuarios : Vetor[1..9999] de Usuario //(vetor de registro)
+	// é necessário saber qtos usuarios foram cadastrados
+	// pois se percorrer 9999 do vetor e mostrar na tela
+	// fica inviável
+	
+	opcao, contadorUsuario : inteiro
+
+Início
+
+	contadorUsuario <- 1
+	Repita
+		Escreva("Digite uma opcao")
+		Escreva("1 - Cadastrar Usuário")
+		Escreva("2 - Listar Usuário")
+		Escreva("3 - Sair")
+		Leia(opcao)
+
+	Caso opcao
+		Seja 1 faça
+		usuarios[contadorUsuario] <- cadastrarUsuario()
+		contadorUsuario <- contadorUsuario + 1 // senao loop
+		Seja 2 faça
+			listarUsuario(usuarios)
+		Senão
+			Escreva("Opção Inválida")
+	Fim_caso
+
+	Até_que(opcao<>3)
+
+Fim

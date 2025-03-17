@@ -1,0 +1,26 @@
+Algoritmo MinhaPrimeiraSubRotinaProcedimento
+	Procedimento escreverInformacao() //usado para isolar o alg em pequenas partes
+		Var
+ 
+ 		Início
+		Escreva("A idade foi lida")
+ 	Fim_procedimento
+
+Var
+	idade : inteiro
+
+Início
+	Escreva("Digite a sua idade")
+	Leia(idade)
+
+// quer-se imprimir na tela que a idade foi lida
+
+// aqui para que essa mensagem apareça na tela
+// deve-se isolar perfazendo-se de um procedimento
+
+	Escreva("A idade foi lida") // ao invés disso, escreve-se
+	
+	escreverInformacao() // é um sub-algoritmo. 
+									// Aqui eu "chamo" o procedimento
+
+Fim
